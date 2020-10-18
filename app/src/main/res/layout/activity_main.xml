@@ -25,7 +25,7 @@
             tools:layout_editor_absoluteY="84dp" />
 
         <Button
-            android:id="@+id/push"
+            android:id="@+id/uploadUrl"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"

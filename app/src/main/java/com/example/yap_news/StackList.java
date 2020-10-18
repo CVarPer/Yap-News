@@ -5,7 +5,7 @@ import android.widget.ArrayAdapter;
 
 import java.util.Stack;
 
-public class StackList<T> /*extends ArrayAdapter<T>*/{
+public class StackList<T>{
     private int top;
     private static final int N = 1000;
     private T[] StackListArray;
@@ -26,6 +26,9 @@ public class StackList<T> /*extends ArrayAdapter<T>*/{
     public boolean full(){
         return top >= StackListArray.length;
     }
+    public int getTop(){
+        return top;
+    }
 
     public T pop(){
         if(empty())
@@ -44,5 +47,7 @@ public class StackList<T> /*extends ArrayAdapter<T>*/{
         StackListArray[top] = item;
         top++;
     }
-
+    public T[] getStackListArray(){
+        return StackListArray;
+    }
 }

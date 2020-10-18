@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "396012128305",
+    "firebase_url": "https://yapp-news.firebaseio.com",
+    "project_id": "yapp-news",
+    "storage_bucket": "yapp-news.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396012128305:android:8722356976513b0e78ad10",
+        "android_client_info": {
+          "package_name": "com.example.yap_news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396012128305-egtc5olh262est26gqjo56vi2pv5brnr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGv8nTaNfuXNo5sdoiTulrzx1Aq2Q6vik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396012128305-egtc5olh262est26gqjo56vi2pv5brnr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
