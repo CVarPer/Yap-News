@@ -26,9 +26,8 @@ public class StackList<T>{
     public boolean full(){
         return top >= StackListArray.length;
     }
-    public int getTop(){
-        return top;
-    }
+
+    public int getTop(){return top;}
 
     public T pop(){
         if(empty())

@@ -1,6 +1,7 @@
 package com.example.yap_news;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import androidx.annotation.NonNull;
@@ -14,9 +15,9 @@ public class adapterNoticias extends RecyclerView.Adapter<adapterNoticias.MyView
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public WebView webView;
-        public MyViewHolder(WebView v) {
+        public MyViewHolder(View v) {
             super(v);
-            webView = v;
+            webView = (WebView) v.findViewById(R.id.webView);
         }
     }
 
@@ -28,14 +29,14 @@ public class adapterNoticias extends RecyclerView.Adapter<adapterNoticias.MyView
     @Override
     public adapterNoticias.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // create a new view
-        WebView v = (WebView) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_noticias, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_noticias, parent, false);
         return new MyViewHolder(v);
     }
     @Override
     public void onBindViewHolder(@NonNull adapterNoticias.MyViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.webView.loadUrl(((stackNoticias.getStackListArray())[position]));
+        holder.webView.loadUrl( (stackNoticias.getStackListArray())[position] );
     }
     @Override
     public int getItemCount() {
