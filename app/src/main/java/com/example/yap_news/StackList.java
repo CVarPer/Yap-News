@@ -7,7 +7,7 @@ import java.util.Stack;
 
 public class StackList<T>{
     private int top;
-    private static final int N = 1000;
+    private static final int N = 100;
     private T[] StackListArray;
 
     public StackList(){

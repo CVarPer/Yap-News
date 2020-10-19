@@ -1,28 +1,30 @@
 package com.example.yap_news;
 
+import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-
-import java.net.URL;
-
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private adapterNoticias adapter;
     private RecyclerView.LayoutManager layoutManager;
     private StackList<String> Stack = new StackList<>();
+    private TextView textView;
+    private WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         final EditText insertUrl = findViewById(R.id.InsertUrl);
         Button button = findViewById(R.id.uploadUrl);
@@ -38,10 +40,19 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Stack.push(insertUrl.getText().toString());
+                adapter.addUrl(insertUrl.getText().toString());
             }
         });
+        ItemClickSupport.addTo(recyclerView)
+                .setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+                    @Override
+                    public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                        textView = findViewById(R.id.webView);
+                        webView = findViewById(R.id.webView_Noticia);
+                        webView.loadUrl(textView.getText().toString());
 
+                    }
+                });
     }
 }
 
