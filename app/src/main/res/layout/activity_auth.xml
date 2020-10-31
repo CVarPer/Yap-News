@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AuthActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="184dp"
+            android:layout_height="213dp"
+            app:srcCompat="@drawable/logo_yapp"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"/>
+
+        <EditText
+            android:id="@+id/txtCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_email"
+            android:background="@drawable/custom_input"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Correo elèctronico"
+            android:inputType="textEmailAddress"
+            android:layout_gravity="center"/>
+
+        <EditText
+            android:id="@+id/txtContraseña"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_lock"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"
+            android:layout_gravity="center"/>
+
+        <com.example.yap_news.WalkiriaButton
+            android:id="@+id/botonIniciar"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:background="#309393"
+            android:enabled="true"
+            android:insetLeft="10dp"
+            android:text="Iniciar!"
+            android:textColor="@color/blanco"
+            app:backgroundTint="@null" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="¿Olvidaste tu contraseña?"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"/>
+
+        <com.example.yap_news.WalkiriaButton
+            android:id="@+id/botonRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_weight="1"
+            android:background="#309393"
+            android:enabled="true"
+            android:insetRight="10dp"
+            android:text="Registrarme"
+            android:textColor="@color/blanco"
+            app:backgroundTint="@null" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

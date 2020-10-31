@@ -1,5 +1,6 @@
 package com.example.yap_news;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
@@ -11,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private adapterNoticias adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        Intent intent = getIntent();
 
         final EditText insertUrl = findViewById(R.id.InsertUrl);
         Button button = findViewById(R.id.uploadUrl);
