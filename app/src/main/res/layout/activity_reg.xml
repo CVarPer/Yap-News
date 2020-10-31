@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteY="137dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="154dp"
+            android:layout_height="181dp"
+            app:srcCompat="@drawable/logo_yapp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"/>
+
+        <EditText
+            android:id="@+id/txt_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_person"
+            android:background="@drawable/custom_input"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Nombre"
+            android:inputType="textPersonName"
+            android:layout_gravity="center"/>
+
+        <EditText
+            android:id="@+id/txt_telefono"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_phone"
+            android:background="@drawable/custom_input"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Telefono"
+            android:inputType="phone"
+            android:layout_gravity="center"/>
+
+        <EditText
+            android:id="@+id/txt_correo"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_email"
+            android:background="@drawable/custom_input"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Correo"
+            android:inputType="textEmailAddress"
+            android:layout_gravity="center"/>
+
+        <EditText
+            android:id="@+id/txt_contraseña"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_lock"
+            android:background="@drawable/custom_input"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:layout_gravity="center"/>
+
+        <EditText
+            android:id="@+id/txt_confirmar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_lock"
+            android:background="@drawable/custom_input"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Confirmar contraseña"
+            android:inputType="textPassword"
+            android:layout_gravity="center"/>
+
+        <com.example.yap_news.WalkiriaButton
+            android:id="@+id/botonRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="50dp"
+            android:background="#309393"
+            android:insetRight="10dp"
+            android:text="Registrarme"
+            android:textColor="@color/blanco"
+            />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
