@@ -1,5 +1,6 @@
 package com.example.yap_news;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,6 +37,12 @@ public class AuthActivity extends AppCompatActivity {
         botonIniciar = findViewById(R.id.botonIniciar);
         botonRegistrar = findViewById(R.id.botonRegistro);
 
+        FirebaseUser usuarioActual = mAuth.getCurrentUser();
+        if(usuarioActual != null){
+            Intent intent = new Intent(com.example.yap_news.AuthActivity.this, HomeActivity.class);
+            startActivity(intent);
+        }
+
         botonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,21 +67,25 @@ public class AuthActivity extends AppCompatActivity {
         String correoE = correo.getText().toString().trim();
         String pass = contraseña.getText().toString().trim();
 
-        mAuth.signInWithEmailAndPassword(correoE, pass)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Log.d("Estado:", "Iniciando");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(com.example.yap_news.AuthActivity.this, HomeActivity.class);
-                            startActivity(intent);
-                            Toast.makeText(com.example.yap_news.AuthActivity.this, "has Iniciado sesion!!", Toast.LENGTH_SHORT).show();
+        if(correoE.equals("") || pass.equals("")){
+            Toast.makeText(AuthActivity.this, "Los campos deben ser llenados", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            mAuth.signInWithEmailAndPassword(correoE, pass)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Log.d("Estado:", "Iniciando");
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                Intent intent = new Intent(com.example.yap_news.AuthActivity.this, HomeActivity.class);
+                                startActivity(intent);
+                                Toast.makeText(com.example.yap_news.AuthActivity.this, "has Iniciado sesion!!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Log.w("Estado", "Hubo un fallo", task.getException());
+                                Toast.makeText(AuthActivity.this, "Usuario o contraseña no validos", Toast.LENGTH_SHORT).show();                            }
                         }
-                        else{
-                            Log.w("Estado","Hubo un fallo", task.getException());
-                        }
-                    }
-                });
+                    });
+        }
     }
 }

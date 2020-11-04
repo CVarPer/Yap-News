@@ -20,8 +20,11 @@ import com.google.firebase.auth.FirebaseUser;
 public class RegActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    private EditText nombre;
+    private EditText telefono;
     private EditText correo;
     private EditText contraseña;
+    private EditText confirmar;
     private Button botonRegistrar;
 
     @Override
@@ -30,8 +33,11 @@ public class RegActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reg);
 
         mAuth = FirebaseAuth.getInstance();
+        nombre = findViewById(R.id.txt_nombre);
+        telefono = findViewById(R.id.txt_telefono);
         correo = findViewById(R.id.txt_correo);
         contraseña = findViewById(R.id.txt_contraseña);
+        confirmar = findViewById(R.id.txt_confirmar);
         botonRegistrar = findViewById(R.id.botonRegistro);
 
         Intent intent = getIntent();
@@ -44,27 +50,46 @@ public class RegActivity extends AppCompatActivity {
         });
     }
 
-    private  void registrarUsuario(EditText correo, EditText contraseña){
+
+    private  void registrarUsuario(final EditText correo, final EditText contraseña){
+        String nombreE = nombre.getText().toString().trim();
+        String telefonoE = telefono.getText().toString().trim();
         String correoE = correo.getText().toString().trim();
         String pass = contraseña.getText().toString().trim();
+        String confirmarE = confirmar.getText().toString().trim();
 
-        mAuth.createUserWithEmailAndPassword(correoE, pass)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Log.d("Estado", "Usuario creado");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(com.example.yap_news.RegActivity.this, HomeActivity.class);
-                            startActivity(intent);
-                            Toast.makeText(com.example.yap_news.RegActivity.this, "Te has registrado!", Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-                            Log.w("Estado","Hubo un fallo", task.getException());
-                            Toast.makeText(com.example.yap_news.RegActivity.this, "Este usuario ya està registrado", Toast.LENGTH_SHORT).show();
+        if(nombreE.equals("") || telefonoE.equals("") || correoE.equals("") || pass.equals("")){
+            Toast.makeText(RegActivity.this, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
+        }
+        else if(pass.length() <= 8){
+            Toast.makeText(RegActivity.this, "La contraseña debe tener minimo 8 caracteres", Toast.LENGTH_SHORT).show();
+        }
+        else if(!pass.equals(confirmarE)){
+            Toast.makeText(RegActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            mAuth.createUserWithEmailAndPassword(correoE, pass)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Log.d("Estado", "Usuario creado");
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                Intent intent = new Intent(com.example.yap_news.RegActivity.this, HomeActivity.class);
+                                startActivity(intent);
+                                Toast.makeText(com.example.yap_news.RegActivity.this, "Te has registrado!", Toast.LENGTH_SHORT).show();
+                                nombre.setText("");
+                                telefono.setText("");
+                                correo.setText("");
+                                contraseña.setText("");
+                                confirmar.setText("");
+                            } else {
+                                Log.w("Estado", "Hubo un fallo", task.getException());
+                                Toast.makeText(com.example.yap_news.RegActivity.this, "Este usuario ya està registrado", Toast.LENGTH_SHORT).show();
 
+                            }
                         }
-                    }
-                });
+                    });
+        }
     }
 }

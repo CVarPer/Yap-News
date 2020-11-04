@@ -7,10 +7,14 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -29,6 +33,7 @@ public class HomeActivity extends AppCompatActivity {
 
         final EditText insertUrl = findViewById(R.id.InsertUrl);
         Button button = findViewById(R.id.uploadUrl);
+        Button botonCerrar = findViewById(R.id.botonSalir);
         recyclerView = findViewById(R.id.recyclerView);
 
         recyclerView.setHasFixedSize(true);
@@ -54,6 +59,15 @@ public class HomeActivity extends AppCompatActivity {
 
                     }
                 });
+
+        botonCerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(HomeActivity.this, "Cerraste sesion", Toast.LENGTH_SHORT).show();
+                onBackPressed();
+            }
+        });
     }
 }
 

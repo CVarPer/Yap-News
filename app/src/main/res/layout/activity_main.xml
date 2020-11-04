@@ -12,41 +12,51 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_margin="15dp">
+
         <EditText
             android:id="@+id/InsertUrl"
-            android:layout_width="250dp"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:layout_marginVertical="10dp"
-
-            android:inputType="textNoSuggestions"
+            android:ems="10"
             android:hint="Ingrese la url"
+            android:inputType="textNoSuggestions"
             android:textColorHint="@color/negro"
             tools:layout_editor_absoluteX="100dp"
             tools:layout_editor_absoluteY="84dp" />
 
         <Button
             android:id="@+id/uploadUrl"
-            android:layout_width="100dp"
-            android:layout_marginHorizontal="10dp"
+            android:layout_width="117dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
             android:layout_marginVertical="10dp"
             android:text="Cargar" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="15dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
         android:layout_marginTop="100dp"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical"
+            android:layout_height="294dp"
+            android:scrollbars="vertical"/>
 
-            />
+        <com.example.yap_news.WalkiriaButton
+            android:id="@+id/botonSalir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cerrar sesion"
+            android:background="#309393"
+            android:textColor="@color/blanco" />
+
     </LinearLayout>
 
 
