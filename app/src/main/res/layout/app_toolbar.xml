@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/appBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_bar"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_input"
+            android:gravity="start"/>
+        <ImageButton
+            android:id="@+id/filtro"
+            android:scaleType="fitCenter"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/search_bar"
+            android:src="@drawable/ic_filtro"
+            android:layout_gravity="center"
+            android:background="@color/blanco"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo_yapp"
+            android:layout_toEndOf="@+id/filtro"/>
+
+    </RelativeLayout>
+
+
+</androidx.appcompat.widget.Toolbar>

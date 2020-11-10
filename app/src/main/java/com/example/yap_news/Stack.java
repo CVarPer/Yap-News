@@ -1,20 +1,15 @@
 package com.example.yap_news;
 
-import android.content.Context;
-import android.widget.ArrayAdapter;
-
-import java.util.Stack;
-
-public class StackList<T>{
+public class Stack<T>{
     private int top;
     private static final int N = 100;
-    private T[] StackListArray;
+    private final T[] StackListArray;
 
-    public StackList(){
+    public Stack(){
         this(N);
     }
 
-    public StackList(int n){
+    public Stack(int n){
         top = 0;
         StackListArray = (T[]) new Object[n];
     }

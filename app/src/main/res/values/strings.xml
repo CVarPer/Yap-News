@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Yap_News</string>
+
+    <!--Elementos menú desplegable-->
+    <string name="perfil">Perfil</string>
+    <string name="guardados">Elementos Guardados</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="cerrar_sesión">Cerrar sesión</string>
+    <!--Elementos menú desplegable-->
+
+    <!--Menú desplegable hamburguer icon-->
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
+
+    <string name="recup_contra">Ingresa tu correo para que sea validado, en caso de estar registrado te enviaremos un correo para que puedas recuperar tu contraseña</string>
 </resources>

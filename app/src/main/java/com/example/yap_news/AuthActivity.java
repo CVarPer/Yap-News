@@ -1,12 +1,13 @@
 package com.example.yap_news;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ public class AuthActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText correo;
     private EditText contraseña;
+    private TextView resetContraseña;
     private Button botonRegistrar;
     private Button botonIniciar;
 
@@ -34,8 +36,11 @@ public class AuthActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         correo = findViewById(R.id.txtCorreo);
         contraseña = findViewById(R.id.txtContraseña);
+        resetContraseña = findViewById(R.id.recupContra);
         botonIniciar = findViewById(R.id.botonIniciar);
         botonRegistrar = findViewById(R.id.botonRegistro);
+
+        resetContraseña.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
 
         FirebaseUser usuarioActual = mAuth.getCurrentUser();
         if(usuarioActual != null){
@@ -54,6 +59,13 @@ public class AuthActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 iniciarUsuario(correo, contraseña);
+            }
+        });
+
+        resetContraseña.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recupContra();
             }
         });
     }
@@ -82,10 +94,14 @@ public class AuthActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 Toast.makeText(com.example.yap_news.AuthActivity.this, "has Iniciado sesion!!", Toast.LENGTH_SHORT).show();
                             } else {
-                                Log.w("Estado", "Hubo un fallo", task.getException());
+                                Log.w("Estado", "Ha ocurrido un error", task.getException());
                                 Toast.makeText(AuthActivity.this, "Usuario o contraseña no validos", Toast.LENGTH_SHORT).show();                            }
                         }
                     });
         }
+    }
+    private void recupContra(){
+            Intent intent = new Intent(AuthActivity.this, resetPassword.class);
+            startActivity(intent);
     }
 }

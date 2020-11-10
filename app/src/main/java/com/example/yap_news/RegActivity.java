@@ -58,10 +58,10 @@ public class RegActivity extends AppCompatActivity {
         String pass = contraseña.getText().toString().trim();
         String confirmarE = confirmar.getText().toString().trim();
 
-        if(nombreE.equals("") || telefonoE.equals("") || correoE.equals("") || pass.equals("")){
+        if(nombreE.isEmpty() || telefonoE.isEmpty() || correoE.isEmpty() || pass.isEmpty()){
             Toast.makeText(RegActivity.this, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
         }
-        else if(pass.length() <= 8){
+        else if(pass.length() < 8){
             Toast.makeText(RegActivity.this, "La contraseña debe tener minimo 8 caracteres", Toast.LENGTH_SHORT).show();
         }
         else if(!pass.equals(confirmarE)){
@@ -77,15 +77,15 @@ public class RegActivity extends AppCompatActivity {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 Intent intent = new Intent(com.example.yap_news.RegActivity.this, HomeActivity.class);
                                 startActivity(intent);
-                                Toast.makeText(com.example.yap_news.RegActivity.this, "Te has registrado!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(com.example.yap_news.RegActivity.this, "Te has registrado exitosamente", Toast.LENGTH_SHORT).show();
                                 nombre.setText("");
                                 telefono.setText("");
                                 correo.setText("");
                                 contraseña.setText("");
                                 confirmar.setText("");
                             } else {
-                                Log.w("Estado", "Hubo un fallo", task.getException());
-                                Toast.makeText(com.example.yap_news.RegActivity.this, "Este usuario ya està registrado", Toast.LENGTH_SHORT).show();
+                                Log.w("Estado", "Ha ocurrido un error", task.getException());
+                                Toast.makeText(com.example.yap_news.RegActivity.this, "Este usuario ya está registrado", Toast.LENGTH_SHORT).show();
 
                             }
                         }

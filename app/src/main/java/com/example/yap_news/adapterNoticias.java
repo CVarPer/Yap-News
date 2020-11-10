@@ -1,6 +1,5 @@
 package com.example.yap_news;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
-
-import java.net.URL;
-
 public class adapterNoticias extends RecyclerView.Adapter<adapterNoticias.MyViewHolder> {
 
-    private StackList<String> stackNoticias;
+    private final Stack<String> stackNoticias;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
@@ -29,8 +24,8 @@ public class adapterNoticias extends RecyclerView.Adapter<adapterNoticias.MyView
         }
     }
 
-    public adapterNoticias(StackList<String> mStack){
-        mStack = new StackList<>();
+    public adapterNoticias(Stack<String> mStack){
+        mStack = new Stack<>();
         stackNoticias = mStack;
     }
     public void addUrl(String url){
