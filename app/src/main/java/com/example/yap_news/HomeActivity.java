@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class HomeActivity extends AppCompatActivity {
         //final EditText insertUrl = findViewById(R.id.InsertUrl);
         //Button button = findViewById(R.id.uploadUrl);
         //Button botonCerrar = findViewById(R.id.botonSalir);
+        Button botonComunidad = findViewById(R.id.botonComunidad);
         toolbar = findViewById(R.id.home_activity_toolbar);
         setSupportActionBar(toolbar);
 
@@ -80,6 +82,13 @@ public class HomeActivity extends AppCompatActivity {
                         webView.loadUrl(textView.getText().toString());
                     }
                 });*/
+        botonComunidad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent comunidad = new Intent(HomeActivity.this, ComunityActivity.class);
+                startActivity(comunidad);
+            }
+        });
     }
 
     private void selectorMenu(MenuItem item) {
