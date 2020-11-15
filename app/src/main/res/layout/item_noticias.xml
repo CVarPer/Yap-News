@@ -5,24 +5,63 @@
     android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:orientation="horizontal">
-            <TextView
-                android:id="@+id/webView"
-                android:layout_width="wrap_content"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/foto_medio"
+                android:layout_margin="5dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_profile_pic"/>
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Element"
-                android:textSize="30sp" />
-        </LinearLayout>
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/nombre_medio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre periódico/medio"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/negro"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/autor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Por: Autor"
+                        android:textSize="15sp"/>
+                    <TextView
+                        android:id="@+id/fecha"
+                        android:layout_marginStart="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha"/>
+                    <TextView
+                        android:id="@+id/hora"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hora"/>
+                </LinearLayout>
 
-        <WebView
-            android:id="@+id/webView_Noticia"
+            </LinearLayout>
+        </LinearLayout>
+        <io.github.ponnamkarthik.richlinkpreview.RichLinkViewTelegram
+            android:layout_margin="10dp"
+            android:id="@+id/preview_Noticia"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </RelativeLayout>

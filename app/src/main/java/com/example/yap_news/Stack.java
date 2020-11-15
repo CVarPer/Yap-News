@@ -2,8 +2,8 @@ package com.example.yap_news;
 
 public class Stack<T>{
     private int top;
-    private static final int N = 100;
-    private final T[] StackListArray;
+    private static final int N = 1000000;
+    private final T[] StackArray;
 
     public Stack(){
         this(N);
@@ -11,7 +11,7 @@ public class Stack<T>{
 
     public Stack(int n){
         top = 0;
-        StackListArray = (T[]) new Object[n];
+        StackArray = (T[]) new Object[n];
     }
 
     public boolean empty(){
@@ -19,7 +19,7 @@ public class Stack<T>{
     }
 
     public boolean full(){
-        return top >= StackListArray.length;
+        return top >= StackArray.length;
     }
 
     public int getTop(){return top;}
@@ -28,20 +28,20 @@ public class Stack<T>{
         if(empty())
             throw new RuntimeException("Stack is Empty");
         top--;
-        return StackListArray[top];
+        return StackArray[top];
     }
     public T peek(){
         if(empty())
             throw new RuntimeException("Stack is Empty");
-        return StackListArray[--top];
+        return StackArray[--top];
     }
     public void push(T item){
         if(full())
             throw new RuntimeException("Stack is full");
-        StackListArray[top] = item;
+        StackArray[top] = item;
         top++;
     }
-    public T[] getStackListArray(){
-        return StackListArray;
+    public T[] getStackArray(){
+        return StackArray;
     }
 }
