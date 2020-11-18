@@ -54,14 +54,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="608dp"
                 android:scrollbars="vertical" />
-
-            <!--<com.example.yap_news.WalkiriaButton
-                android:id="@+id/botonSalir"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cerrar sesion"
-                android:background="#309393"
-                android:textColor="@color/blanco" />-->
         </FrameLayout>
     </RelativeLayout>
     <com.google.android.material.navigation.NavigationView

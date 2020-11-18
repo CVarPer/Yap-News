@@ -57,7 +57,7 @@
 
             </LinearLayout>
         </LinearLayout>
-        <io.github.ponnamkarthik.richlinkpreview.RichLinkViewTelegram
+        <TextView
             android:layout_margin="10dp"
             android:id="@+id/preview_Noticia"
             android:layout_width="match_parent"

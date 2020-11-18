@@ -53,6 +53,7 @@ dependencies {
 
     //Agregar preview para los enlaces
     implementation 'io.github.ponnamkarthik:richlinkpreview:1.0.9'
+    implementation 'org.jsoup:jsoup:1.11.3'
 
     //Material Design
     implementation 'com.google.android.material:material:1.2.1'

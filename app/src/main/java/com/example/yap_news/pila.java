@@ -44,18 +44,13 @@ public class pila {
 
     public boolean isEmpty(){
         Nodo reco = raiz;
-        if(reco == null){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return reco == null;
     }
 
     public String peek(){
         Nodo reco = raiz;
         if(reco == null){
-            System.out.print("no puedes sacar elementos de una pila vacía");
+            System.out.print("No puedes sacar elementos de una pila vacía");
         }
         return reco.info;
 
